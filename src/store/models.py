@@ -22,7 +22,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     slug = models.SlugField(max_length=255)
     price = models.DecimalField(max_digits=1000, decimal_places=2)
-    # image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/')
 
 
     class Meta:
