@@ -1,6 +1,6 @@
 from django.db import models
 from uuslug import uuslug
-
+from django.urls import reverse
 # auto slug field is a django package that slugify fields uniquely and automatically
 
 # Create your models here.
@@ -19,6 +19,9 @@ class Category(models.Model):
     def save(self, *args, **kwargs):
         self.slug = uuslug(self.name, instance=self)
         super(Category, self).save(*args, **kwargs)
+
+    # def get_absolute_url(self):
+    #     return reverse("product_info", kwargs={"slug": self.slug})
 
 
 # - when we add editable=false in a model field
@@ -46,3 +49,6 @@ class Product(models.Model):
         # uuslug uniquely slugify model fields
         self.slug = uuslug(self.title, instance=self)
         super(Product, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("product_info", kwargs={"slug": self.slug})
