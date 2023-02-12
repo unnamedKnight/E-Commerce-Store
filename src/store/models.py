@@ -20,8 +20,8 @@ class Category(models.Model):
         self.slug = uuslug(self.name, instance=self)
         super(Category, self).save(*args, **kwargs)
 
-    # def get_absolute_url(self):
-    #     return reverse("product_info", kwargs={"slug": self.slug})
+    def get_absolute_url(self):
+        return reverse("category_list", kwargs={"slug": self.slug})
 
 
 # - when we add editable=false in a model field
