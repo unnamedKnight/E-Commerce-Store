@@ -87,13 +87,15 @@
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     &nbsp;
                     <div id="cart-qty" class="d-inline-flex">
-                        {% comment %} {% with qty_amount = cart | length %}
+                        {% comment %} here with keyword let us assign a value in a variable from the context processor {% endcomment %}
+                        {% comment %} cart | length in this command length is actually a method of the cart class {% endcomment %}
+                        {% with qty_amount=cart|length %}
                             {% if qty_amount > 0 %}
                                 {{ qty_amount }}
                             {% else %}
                                 0
                             {% endif %}
-                        {% endwith %} {% endcomment %}
+                        {% endwith %}
                     </div>
                 </a>
             </li>
