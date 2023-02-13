@@ -71,6 +71,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "store.views.categories",  # adding context_processors for categories
+                "cart.context_processors.cart",  # adding context_processors for cart data
             ],
         },
     },
